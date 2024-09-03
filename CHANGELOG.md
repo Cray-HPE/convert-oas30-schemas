@@ -9,3 +9,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Initial version
+### Dependencies
+- Bump `sphinx-rtd-theme` from ~=1.3.0 to ~=2.0.0 ([#7](https://github.com/Cray-HPE/convert-oas30-schemas/pull/7))
