@@ -1,0 +1,142 @@
+#
+# MIT License
+#
+# (C) Copyright 2024 Hewlett Packard Enterprise Development LP
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+# OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+# ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+# OTHER DEALINGS IN THE SOFTWARE.
+#
+
+[project]
+name = 'convert-oas30-schemas'
+authors = [
+    { name = 'Hewlett Packard Enterprise Development LP' },
+]
+classifiers = [
+    'License :: OSI Approved :: MIT License',
+    'Natural Language :: English',
+    'Operating System :: POSIX',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+]
+description = 'Convert OAS 3.0 schemas to be 3.1-compatible'
+dependencies = [ 'jsonref' ]
+maintainers = [
+    { name = 'Mitch Harding', email = 'mitchell.harding@hpe.com'}
+]
+requires-python = '>=3.6'
+# The actual version is filled in at build time
+version = '0.0.57'
+
+[metadata]
+url = 'https://github.com/Cray-HPE/convert-oas30-schemas'
+
+license = { file = 'LICENSE' }
+
+[project.optional-dependencies]
+ci = [
+    'nox~=2023.4.22',
+]
+docs = [
+    'recommonmark~=0.7.1',
+    'sphinx-autodoc-typehints~=1.24.0',
+    'sphinx-copybutton~=0.5.2',
+    'sphinx-markdown-tables~=0.0.17',
+    'sphinx-rtd-theme~=1.3.0',
+    'sphinx~=7.2.2',
+]
+lint = [
+    'ruff~=0.0.280',
+]
+test = [
+    'coverage~=7.1',
+    'pytest~=7.2',
+    'pytest-cov~=4.0',
+    'ruff~=0.0.280',
+    'mock~=5.0',
+]
+
+# Defines which folders belong to our package.
+[tool.setuptools.packages.find]
+include = ["convert_oas30_schemas"]
+exclude = []
+
+[build-system]
+build-backend = 'setuptools.build_meta'
+requires = [
+    'setuptools',
+    'wheel',
+]
+
+[tool.distutils.bdist_wheel]
+universal = false # This app is not compatible with Python2.
+
+[tool.ruff]
+# Enable pycodestyle (`E`), Pyflakes (`F`), docstrings (`D`)
+select = ["E", "F", "D", "PL"]
+ignore = [
+  "D100",    # Missing docstring in public module
+  "D102",    # Missing docstring in public method
+  "D103",    # Missing docstring in public function
+  "D104",    # Missing docstring in public package
+  "D107",    # Missing docstring in `__init__`
+  "D200",    # One-line docstring should fit on one line
+  "D203",    # 1 blank line required before class docstring
+  "D205",    # 1 blank line required between summary line and description
+  "D212",    # Multi-line docstring summary should start at the first line
+  "PLR0913"  # Too many arguments to function call (7 > 5)
+  ]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+# fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
+fixable = ["ALL"]
+unfixable = []
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+line-length = 120
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
