@@ -9,3 +9,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Initial version
+### Dependencies
+- Bump `sphinx-autodoc-typehints` from ~=1.24.0 to ~=2.3.0 ([#4](https://github.com/Cray-HPE/convert-oas30-schemas/pull/4))
