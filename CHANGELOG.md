@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bump `tj-actions/changed-files` from 44 to 45 ([#1](https://github.com/Cray-HPE/convert-oas30-schemas/pull/1))
 - Bump `dangoslen/dependabot-changelog-helper` from 3 to 4 ([#9](https://github.com/Cray-HPE/convert-oas30-schemas/pull/9))
 - Bump `actions/checkout` from 4 to 5 ([#12](https://github.com/Cray-HPE/convert-oas30-schemas/pull/12))
+- Bump `stefanzweifel/git-auto-commit-action` from 5 to 7 ([#14](https://github.com/Cray-HPE/convert-oas30-schemas/pull/14))
 
 ## [0.1.0] - 2024-09-03
 
